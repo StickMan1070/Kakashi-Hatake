@@ -66,10 +66,10 @@
                 let d = new Date();
                 let type;
                 let hours = parseInt(d.getHours());
-				let num = 5;
-               // let minutes = d.getMinutes().toString();
-				let minutes = num.toString();
-                if(hours > 12){
+               let minutes = d.getMinutes().toString();
+               
+			
+				if(hours > 12){
                     hours = hours - 12;
                     type = "PM";
                 }else{
@@ -147,17 +147,17 @@
                     }else if (message.includes("your funny")){
                        text = "I know right, funniest man in Konoha, I mean, not including the great Joandy or Abel"; 
                     }else if (message.includes("code for life")){
-                       text = "code for "; 
+                       text = "code for life is the place in which ninjas become the strongest, they learn under the great teachings of Brandon sesei, who made legends like Joandy, Patrick, and Abel who they are today."; 
 					}else if (message.includes("hey") ){
                        text = "whats up"; 
 					}else if (message.includes("hello" || message.includes("hello!")) ){
                        text = "hi"; 
 					}else if (message.includes("I hate you") ){
                        text = "I dont think you realize that you are talking to a top tier ninja. I'll spare you.... for now"; 
-					}else if (message.includes("") ){
-                       text = "Idk man, I dont have time to worry about i"; 
-					}else if (message.includes("what is your favorite color?") ){
-                       text = "Idk man, I dont have time to worry about it"; 
+					}else if (message.includes("ninja") ){
+                       text = "A true ninja is one who protects his commerades with his LIFE!!"; 
+					}else if (message.includes ("Sakura") ){
+                       text = "shes the weak link of team 7, she dont do crap till the end, where I busted the out susanoo"; 
 					}else{
                         text = random(wrongResponses);
                     }
