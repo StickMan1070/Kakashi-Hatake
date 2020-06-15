@@ -48,71 +48,158 @@
         </style>
     </head>
     <body>
-        <div id="chatBox">
-        <div class="container">
-          <img src="/w3images/bandmember.jpg" alt="Avatar">
-          <p>Hello. How are you today?</p>
-          <span class="time-right">11:00</span>
-        </div>
-        <div class="container darker">
-          <img src="/w3images/avatar_g2.jpg" alt="Avatar" class="right">
-          <p>Hey! I'm fine. Thanks for asking!</p>
-          <span class="time-left">11:01</span>
-            </div>
-        </div>
+		
+		<div>
+			<h1 style= color: red >You wanna talk to a very great ninja?? LOOK NO FURTHER</h1>	
+		</div>
+		
+        <div id="chatBox"></div>
         <div>
-                <p id="typeNotifier" style="display: none;">AI Brandon is typing...</p>
-                <textarea id="userInput" rows="4" cols="190" placeholder="Type here to send message AI Brandon"></textarea>
+                <p id="typeNotifier" style="display: none;">Kakashi Hatake is gracefully typing...</p>
+                <textarea id="userInput" rows="4" cols="190" placeholder="Type here to send message Kakashi Hatake"></textarea>
                 <button style="display: none;" id="myBtn" onclick="javascript:alert('Hello World!')">Button</button>
         </div>  
         <script>
+			
+			
+		function grabTime(){
+                let d = new Date();
+                let type;
+                let hours = parseInt(d.getHours());
+				let num = 5;
+               // let minutes = d.getMinutes().toString();
+				let minutes = num.toString();
+                if(hours > 12){
+                    hours = hours - 12;
+                    type = "PM";
+                }else{
+                    type = "AM";
+                }
+                if(minutes.length == 1){
+                    minutes = `0${minutes}`;
+                }
+                return `${hours}:${minutes} ${type}`;
+            }
+			
             function random(items){
                 var item = items[Math.floor(Math.random() * items.length)]; 
                 return item;
              }
             var input = document.getElementById("userInput");
             let aIResponses = ['Really now?', 'If you say so...', 'I am really not sure', 'Lebron James'];
-            let aIResponseTimes = [5000, 3000, 8000, 4000, 2000];
+            let aIResponseTimes = [5000, 3000, 4000, 2000, 1500];
             input.addEventListener("keyup", function(event) {
                 let typeNotifier = document.getElementById("typeNotifier");
                 let chatBox = document.getElementById("chatBox");
                 let message = input.value;
-                console.log(input.innerHTML);
                 let newMessageBox = document.createElement('div');
                 newMessageBox.classList.add("container");
                 newMessageBox.innerHTML = `
-                    <img src="/w3images/bandmember.jpg" alt="Avatar">
+                    <img src="Media/mic.jpg" alt="Avatar">
                     <p>${message}</p>
-                    <span class="time-right">11:02</span>
+                    <span class="time-right">${grabTime()}</span>
                     `;
                 if (event.keyCode === 13) {
                     event.preventDefault();
                     chatBox.appendChild(newMessageBox);
-                    console.log(input);
                     input.value = " ";
                      typeNotifier.style.display = "block";
-                    console.log(message.toString === "What is your favorite color?");
-                    console.log(typeof message);
-                    console.log("Hello");
-                    x = "What is your favorite color?"
-//                    message = String(message);
-                    if (message == "How are you?") {
-                        text = "I'm pretty level headed since I'm a computer program.";
-                    }else if (message == "What is your favorite color?"){
-                       text = "All of 'em."; 
-                    }else{
-                        text = "Mmmm. My responses are limited. Looking forward to the Weekend.";
+					
+					message = message.toString();
+					message = message.replace(/(\r\n|\n|\r)/gm, "");
+					message = message.toLowerCase();
+					let wrongResponses = ["Nanii??", "what was that?", "My guy, whatt??", "please repeat that", "wth"]
+					let expressions = ["?", "!",]
+					
+					
+					
+					
+          		if (message.includes("how are you") ) {
+                        text = " Im chilling";
+                    }else if (message.includes("what is your favorite color?") ){
+                       text = "Idk man, I dont have time to worry about it"; 
+                    }else if (message.includes("naruto") || message.includes("naruto" + expressions)){
+                       text = "Sigh, what a knucklehead, how did he ever become Hokage"; 
+                    }else if (message.includes("food")){
+                       text = "RAMEN FOR LIFE!!!"; 
+                    }else if (message.includes("about joandy?")){
+                       text = "Joandy Mercedes, he is the most powerful ninja ever known to this very earth, he taught naruto himself. Nobody is as graceful as his being"; 
+                    }else if (message.includes("hate")){
+                       text = "hate is a strong word, never use it, not even on your worst foe"; 
+                    }else if (message.includes("lesson")){
+                       text = "those who dont follow the rules are scum, but those who abandon their friends are even greater scum"; 
+                    }else if (message.includes("Brandon")){
+                       text = "Brandon is the goat. nuff said"; 
+                    }else if (message.includes("your name")){
+                       text = "I am Kakashi Hatake, the 6th Hokage of Konoha"; 
+                    }else if (message.includes("Minato")){
+                       text = "Oh Minato, he was my sensei, probably should've told Naruto that he was his dad, but whatever. Forgive and forget am I right"; 
+                    }else if (message.includes("favorite magazine")){
+                       text = "uuhhhh, we don't talk about that. You're a little bit too young"; 
+                    }else if (message.includes("Sasuke")){
+                       text = "sasuke is just a little brat brat who left the village for no reason. no where near the power level of Naruto."; 
+                    }else if (message.includes("Abel")){
+                       text = "Abel is a great man, known as Joandy's nii-san, and known as a great master, 2nd only to Joandy's immense power"; 
+                    }else if (message.includes("patrick")){
+                       text = "He's a little wimp, he does not compare to Joandy or Abel. Though he is a great coder."; 
+                    }else if (message.includes("lol")){
+                       text = "I really dont understand what's funny, you have a terrible sense of humor"; 
+                    }else if (message.includes("your funny")){
+                       text = "I know right, funniest man in Konoha, I mean, not including the great Joandy or Abel"; 
+                    }else if (message.includes("code for life")){
+                       text = "code for "; 
+					}else if (message.includes("hey") ){
+                       text = "whats up"; 
+					}else if (message.includes("hello" || message.includes("hello!")) ){
+                       text = "hi"; 
+					}else if (message.includes("I hate you") ){
+                       text = "I dont think you realize that you are talking to a top tier ninja. I'll spare you.... for now"; 
+					}else if (message.includes("") ){
+                       text = "Idk man, I dont have time to worry about i"; 
+					}else if (message.includes("what is your favorite color?") ){
+                       text = "Idk man, I dont have time to worry about it"; 
+					}else{
+                        text = random(wrongResponses);
                     }
-                    console.log(message);
-                    console.log(text);
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+                   
                     setTimeout(function(){ 
                         let newaIResponse = document.createElement('div');
                         newaIResponse.classList.add("container");
                         newaIResponse.classList.add("darker");
                         newaIResponse.innerHTML = `
-                        <img src="/w3images/bandmember.jpg" alt="Avatar">
+                        <img src="Media/Kakashi.jpg" alt="Avatar">
                         <p>${text}</p>
-                        <span class="time-right">11:02</span>
+                        <span class="time-right">${grabTime()}</span>
                         `;
                         chatBox.appendChild(newaIResponse);
                         typeNotifier.style.display = "none";
@@ -134,16 +221,4 @@
 
 
 
-
-
-
-
-
-
-
-
-
-Message javascript
-
-Slack needs your permission to enable desktop notifications.
 
